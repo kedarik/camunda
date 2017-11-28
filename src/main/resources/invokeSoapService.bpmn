@@ -8,7 +8,7 @@
       <bpmn2:extensionElements>
         <camunda:connector>
           <camunda:inputOutput>
-            <camunda:inputParameter name="url"><![CDATA[http://www.webservicex.net/globalweather.asmx?op=GetCitiesByCountry
+            <camunda:inputParameter name="url"><![CDATA[http://www.webservicex.net/globalweather.asmx
 ]]></camunda:inputParameter>
             <camunda:inputParameter name="payload">
               <camunda:script scriptFormat="freemarker" resource="soapEnvelope.ftl" />
@@ -18,18 +18,18 @@
                 <camunda:entry key="Content-Type"><![CDATA[application/soap+xml;charset=UTF-8;action="http://www.webservicex.net/globalweather.asmx?op=GetCitiesByCountry"]]></camunda:entry>
               </camunda:map>
             </camunda:inputParameter>
-            <camunda:outputParameter name="forecast"><![CDATA[
+            <camunda:outputParameter name="Table"><![CDATA[
                 ${S(response)
                     .childElement("Body")
-                    .childElement("http://www.webserviceX.NET", "GetWeatherResponse")
-                    .childElement("GetWeatherResult")
+                    .childElement("http://www.webserviceX.NET", "GetCitiesByCountryResponse")
+                    .childElement("GetCitiesByCountryResult")
                     .textContent()}
               ]]></camunda:outputParameter>
           </camunda:inputOutput>
           <camunda:connectorId>soap-http-connector</camunda:connectorId>
         </camunda:connector>
         <camunda:inputOutput>
-          <camunda:outputParameter name="temperature">
+          <camunda:outputParameter name="Table">
             <camunda:script scriptFormat="Javascript" resource="parseTemperature.js" />
           </camunda:outputParameter>
         </camunda:inputOutput>

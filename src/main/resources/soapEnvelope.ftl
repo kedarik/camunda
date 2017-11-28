@@ -1,7 +1,9 @@
-<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <GetCitiesByCountry xmlns="http://www.webserviceX.NET">
-      <CountryName>${country}</CountryName>
-    </GetCitiesByCountry>
-  </soap:Body>
-</soap:Envelope>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetCitiesByCountry>
+         <!--Optional:-->
+         <web:CountryName>${country}</web:CountryName>
+      </web:GetCitiesByCountry>
+   </soapenv:Body>
+</soapenv:Envelope>
